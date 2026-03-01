@@ -53,7 +53,7 @@ with st.sidebar:
 if st.button("开始计算矩阵", type="primary"):
     price_range = np.arange(price_start, price_end + (1 if price_step>0 else -1), price_step)
     iv_range = np.arange(iv_start/100, (iv_end+1)/100, iv_step/100)
-    days_passed_list = [0, 5, 10]
+    days_passed_list = [0, 1,3,5, 7,10]
     
     for day in days_passed_list:
         T_current = (initial_T_days - day) / 243.0
@@ -67,4 +67,5 @@ if st.button("开始计算矩阵", type="primary"):
         )
         
         st.subheader(f"⏳ 假设已过 【{day} 天】 (剩余 {initial_T_days - day} 天)")
+
         st.dataframe(df_matrix, use_container_width=True) # 使用 dataframe 在移动端可以左右滑动查看
