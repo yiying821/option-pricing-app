@@ -34,7 +34,7 @@ def black_scholes_matrix(S, K, T, r, q, sigma, opt_type):
 
 # 2. UI 界面构建
 st.set_page_config(page_title="中证1000期权定价矩阵", layout="wide")
-st.title("📈 期权三维风险平铺矩阵 (BS模型修正版)")
+st.title("📈 股指期权三维风险矩阵")
 st.caption("注：针对 MO2609 等远月合约，请务必准确填写‘初始剩余天数’（2609合约通常大于500天）")
 
 # 侧边栏输入参数
