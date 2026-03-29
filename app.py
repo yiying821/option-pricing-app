@@ -71,7 +71,7 @@ if st.button("生成定价预测矩阵", type="primary"):
     iv_range = np.arange(iv_start/100, (iv_end + 0.1)/100, iv_step/100)
     
     # 模拟时间流逝
-    days_passed_list = [0, 30, 90, 180, 360]
+    days_passed_list = [0, 30, 60,90, 180, 360]
     
     tabs = st.tabs([f"经过 {d} 天" for d in days_passed_list])
     
