@@ -69,17 +69,22 @@ with st.sidebar:
     st.header("基础合约参数")
     contract_type = st.selectbox("选择合约类型", ["沪深300", "上证50", "中证1000"])
     
+    # 根据选择的合约类型设置默认参数和行权价
     if contract_type == "沪深300":
+        default_K = 4850
         default_p_start, default_p_end, default_p_step = 4200, 4800, 100
         default_iv_start, default_iv_end, default_iv_step = 10, 25, 2
     elif contract_type == "中证1000":
+        default_K = 7800
         default_p_start, default_p_end, default_p_step = 7300, 8500, 100
         default_iv_start, default_iv_end, default_iv_step = 15, 50, 3
-    else: 
+    else: # 上证50
+        default_K = 3000
         default_p_start, default_p_end, default_p_step = 2700, 3200, 100
         default_iv_start, default_iv_end, default_iv_step = 10, 25, 3
 
-    K = st.number_input("行权价 (K)", value=4850.0, step=10.0)
+    # 使用整数作为 value 和 step，确保输入框只保留整数
+    K = st.number_input("行权价 (K)", value=int(default_K), step=1)
     opt_type_str = st.selectbox("期权类型", ["认购 (Call)", "认沽 (Put)"])
     opt_type = 0 if opt_type_str == "认购 (Call)" else 1
     
